@@ -1,0 +1,75 @@
+create table User
+(id varchar2(16) primary key,
+name varchar2(20) not null,
+password varchar2(20) not null,
+email varchar2(50) not null unique,
+contactno varchar2(16),
+dob date,
+billing_id varchar2(16) references BillingAddress(id),
+shipping_id varchar2(16) references ShippingAddress(id)
+);
+
+
+create table BillingAddress
+(
+id varchar2(16) primary key,
+addressline1 varchar2(20) not null,
+addressline2 varchar2(20),
+addressline3 varchar2(20),
+addressline4 varchar2(20),
+landmark varchar2(30),
+City varchar2(20) not null,
+pincode varchar2(10)not null,
+state varchar2(20)
+);
+
+create table OneShippingAddress
+(
+id varchar2(16) primary key,
+addressline1 varchar2(20) not null,
+addressline2 varchar2(20),
+addressline3 varchar2(20),
+addressline4 varchar2(20),
+City varchar2(20) not null,
+pincode varchar2(10)not null,
+state varchar2(20)
+);
+
+create table ShippingAddress
+(
+id varchar2(16) primary key,
+address1 varchar2(100),
+address2 varchar2(100),
+address3 varchar2(100),
+address4 varchar2(100),
+address5 varchar2(100)
+);
+
+
+insert into category values ('Cat_0001','Mobile','Its all about the best in mobile');
+insert into category values ('Cat_0002','Laptop','Its all about the best in laptop');
+insert into category values ('Cat_0003','Tablet','Its all about the best in Tablet');
+insert into category values ('Cat_0004','Desktop','Its all about the best in Desktop');
+insert into category values ('Cat_0005','Digital Camera','Its all about the best in digital camera');
+insert into category values ('Cat_0006','Smart Watch','Its all about the best in Smart watch');
+insert into category values ('Cat_0007','Wearable Device','Its all about the best in wearable device');
+insert into category values ('Cat_0008','Headphones','Its all about the best in headphones');
+insert into category values ('Cat_0009','Sat Nav','Its all about the best in satallite navigation');
+insert into category values ('Cat_0010','Home theatre','Its all about the best in home theatre');
+
+insert into supplier values ('Sup_001','Tesco','Hamilton Leicester');
+insert into supplier values ('Sup_002','Sainsbury','Melton Leicester');
+insert into supplier values ('Sup_003','Asda','Beamount Leicester');
+insert into supplier values ('Sup_004','Morrisons','Uppingham Leicester');
+insert into supplier values ('Sup_005','Waitrose','Belgrave Leicester');
+
+insert into product values ('Prod_0000001','Samsung S7 Note',47999,'Cat_0001','Sup_001');
+insert into product values ('Prod_0000002','Apple 7',56999,'Cat_0001','Sup_002');
+insert into product values ('Prod_0000003','Dell x4505',38999,'Cat_0002','Sup_001');
+insert into product values ('Prod_0000004','Bose inEars',12999,'Cat_0008','Sup_005');
+
+insert into billingaddress values ('Bil_0000000001','43, Redpath Close,','St Mark,','','','','Leicester','LE4 6DZ','Leicestershire');
+
+insert into oneshippingaddress values ('Ship_0000000001','30, Ashley road,','Branksome,','','','Near Poole retail','Poole','BH14 9BN','Dorset');
+
+401, ashadeep building
